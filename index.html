@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kosmos Worldview Atlas</title>
+  <meta name="description" content="Kosmos: explore the worldviews of Socrates, Plato, Aristotle and Christianity, then map your own.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=GFS+Didot&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    /* Apply a saved theme before first paint, so the page never flashes the wrong one */
+    try { var t = JSON.parse(localStorage.getItem('kosmos:theme')); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <canvas id="stars" class="stars" aria-hidden="true"></canvas>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Kosmos home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle class="ring" cx="20" cy="20" r="15"/><circle class="ring-2" cx="20" cy="20" r="9"/><circle cx="20" cy="5" r="3" style="fill:var(--socrates)"/><circle cx="35" cy="20" r="3" style="fill:var(--plato)"/><circle cx="20" cy="35" r="3" style="fill:var(--aristotle)"/><circle cx="5" cy="20" r="3" style="fill:var(--christianity)"/><circle cx="20" cy="20" r="3.6" style="fill:var(--sun)"/></svg>
+        <span class="brand-name">Kosmos</span>
+      </a>
+      <button class="icon-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      </button>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle class="ring" cx="20" cy="20" r="15"/><circle class="ring-2" cx="20" cy="20" r="9"/><circle cx="20" cy="5" r="3" style="fill:var(--socrates)"/><circle cx="35" cy="20" r="3" style="fill:var(--plato)"/><circle cx="20" cy="35" r="3" style="fill:var(--aristotle)"/><circle cx="5" cy="20" r="3" style="fill:var(--christianity)"/><circle cx="20" cy="20" r="3.6" style="fill:var(--sun)"/></svg>
+        <span><span class="brand-name">Kosmos</span><span class="brand-sub">Atlas of worldviews</span></span>
+      </a>
+      <nav class="nav" id="nav"></nav>
+      <div class="side-foot">
+        <a class="side-you" id="side-you" href="#quiz" hidden></a>
+        <button class="theme-toggle" id="theme-toggle" type="button"></button>
+        <p class="side-note">A study prototype for the philosophy course.</p>
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+
+    <div class="main">
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="tip" id="tip" role="tooltip"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
